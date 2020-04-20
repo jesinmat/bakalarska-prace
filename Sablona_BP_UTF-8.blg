@@ -1,0 +1,17 @@
+[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:305> INFO - Logfile is 'Sablona_BP_UTF-8.blg'
+[34] biber:313> INFO - === Sun Apr 19, 2020, 16:48:34
+[68] Biber.pm:371> INFO - Reading 'Sablona_BP_UTF-8.bcf'
+[141] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
+[158] Biber.pm:3981> INFO - Processing section 0
+[175] Biber.pm:4154> INFO - Looking for bibtex format file 'mybibliographyfile.bib' for section 0
+[178] bibtex.pm:1468> INFO - LaTeX decoding ...
+[185] bibtex.pm:1294> INFO - Found BibTeX data source 'mybibliographyfile.bib'
+[189] Biber.pm:4154> INFO - Looking for bibtex format file 'ref.bib' for section 0
+[192] bibtex.pm:1468> INFO - LaTeX decoding ...
+[214] bibtex.pm:1294> INFO - Found BibTeX data source 'ref.bib'
+[270] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[270] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'variable = shifted' with 'variable = non-ignorable'
+[271] Biber.pm:3809> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'cs-CZ'
+[273] bbl.pm:617> INFO - Writing 'Sablona_BP_UTF-8.bbl' with encoding 'UTF-8'
+[275] bbl.pm:720> INFO - Output to Sablona_BP_UTF-8.bbl

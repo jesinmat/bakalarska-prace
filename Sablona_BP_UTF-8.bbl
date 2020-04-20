@@ -1,0 +1,72 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{BS86}{article}{}
+      \name{author}{4}{}{%
+        {{hash=fc83c07bda606ccb8bf28d7c928412ec}{%
+           family={Bentley},
+           familyi={B\bibinitperiod},
+           given={Jon\bibnamedelima Louis},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=9640295a0074d073f271d0a714468c0a}{%
+           family={Sleator},
+           familyi={S\bibinitperiod},
+           given={Daniel\bibnamedelima D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=206e5d47c5736119dd3da10ddd0855c6}{%
+           family={Tarjan},
+           familyi={T\bibinitperiod},
+           given={Robert\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=4fec1af9aceefa299386a967d15a352d}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Victor\bibnamedelima K.},
+           giveni={V\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \strng{fullhash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \strng{bibnamehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \strng{authorbibnamehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \strng{authornamehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \strng{authorfullhash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications ACM}
+      \field{number}{4}
+      \field{title}{A locally adaptive data compression scheme}
+      \field{volume}{29}
+      \field{year}{1986}
+      \field{pages}{320\bibrangedash 330}
+      \range{pages}{11}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
