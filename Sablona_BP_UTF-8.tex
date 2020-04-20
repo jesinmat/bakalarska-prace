@@ -43,13 +43,20 @@
 \supervisor{Ing. Tomáš Vondra, Ph.D.}
 \acknowledgements{Doplňte, máte-li komu a za co děkovat. V~opačném případě úplně odstraňte tento příkaz.}
 \abstractCS{Tato bakalářská práce se zabývá problematikou automatického nasazování herních serverů a jejich provozu v cloudovém prostředí.
-Analyzuji tak možnosti nasazování aplikací v cloudu za účelem nalezení nejefektivnějšího způsobu
-a vytvořím obraz systému, který je pro dané využití vhodný. Tento systém bude schopný podporovat množství herních serverů
+Prozkoumá možnosti nasazování aplikací v cloudu za účelem nalezení nejefektivnějšího způsobu
+a popíše vytvoření obrazu systému, který je pro dané využití vhodný. Tento systém bude schopný podporovat množství herních serverů
 bez nutnosti jeho časté změny a bude snadno rozšiřitelný i pro další hry v budoucnosti.
 
-Cílem je vytvořit obraz systému, který je bezpečný, obsahuje jen nezbytně nutné součásti a dá se jednoduše nasadit v cloudovém prostředí.
+Cílem je vytvořit obraz systému určeného pro provoz herních serverů, který je bezpečný, obsahuje jen nezbytně nutné součásti a dá se jednoduše nasadit v cloudovém prostředí.
 Celý proces bude plně automatizovaný.}
-\abstractEN{Sem doplňte ekvivalent abstraktu Vaší práce v~angličtině.}
+\abstractEN{This bachelor's thesis addresses the possibilities of automatic deployment and provisioning of game
+servers in cloud environment. It will explore existing possibilities of deploying applications in cloud to find the optimal solution
+and describe the creation of a system image appropriate for this use case. This system will be capable of running various game servers without frequent
+changes to its internal structure and it will be easily modifiable to include more games, if desired.
+
+The goal is to create a system image designated to run game servers, which is secure,
+contains only the most necessary components, and can easily be deployed to cloud environment. The entire
+process will be fully automated.}
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení (číslo 1-6)
 \keywordsCS{herní server, počítačová hra, cloud, automatizace, nasazování systému}
@@ -96,6 +103,8 @@ na systémové prostředky.
 Hlavním cílem této práce je vytvořit obraz systému, který bude schopný provozovat herní servery v cloudovém prostředí.
 Tento systém musí být jednoduchý na zprovoznění i úpravy. Bude tedy ideálním kandidátem pro uživatele se základní znalostí
 nasazování serverů v cloudu, který nechce provozovat herní server na vlastní infrastruktuře.
+Zaměřím se na herní servery pro menší množství hráčů, které obecně vyžadují méně systémových prostředků a nastavení
+a proces jejich vytváření je tak jednoduše automatizovatelný.
 
 V první části práce je tedy nutné analyzovat dostupné možnosti a najít výhody a nevýhody daných řešení. Dále je potřeba vybrat
 vhodný operační systém, který splňuje dané požadavky. V dalším kroku porovnám různé možnosti provozu herních serverů
@@ -110,13 +119,36 @@ jeho zabezpečení, zahrnující například vzdálený přístup.
 
 \chapter[Analýza]{Analýza a návrh}
 
-V této kapitole provedeme analýzu požadavků a návrh včetně zdůvodnění všech rozhodnutí. \cite{efficient_resources}
-\cite{newcombe_2012}
-\cite{efficient_resources}
+% V této kapitole provedeme analýzu požadavků a návrh včetně zdůvodnění všech rozhodnutí. \cite{efficient_resources}
+% \cite{newcombe_2012}
+% \cite{building_cloud_mog_server}
 
-\section{Analýza}
+\section{Literární rešerše}
 
-Přidáme odstavec Text\,--\,zejména ten odborný\,--\,je nutné členit na odstavce. Každý odstavec by se měl týkat jednoho tématu, myšlenky\dots{} Odstavce od sebe musí být vizuálně oddělené. K tomu existuje několik vhodných stylů, které si popíšeme v jedné z následujících kapitol. Odstavce mohou být různě vysázené. V odborných textech je běžná sazba \enquote{do bloku}. Při ní je nutné vhodně měnit mezislovní mezery. Test. Jejich doporučená velikost je 0,25--0,33~čtverčíku.
+V této části prozkoumám existující řešení pro vytváření herních serverů v cloudu a zvážím jejich klady a zápory.
+
+Vzhledem k velké popularitě cloudových služeb existuje množství zdrojů, ze kterých lze čerpat.
+Herní servery se oproti ostatním typům běžných cloudových aplikací odlišují svojí vysokou náročností
+na systémové prostředky, mimo jiné například požadavkem na nízkou latenci.
+
+Při provozování cloudového serveru pro velké množství hráčů\cite{building_cloud_mog_server} je nutné čelit problémům,
+jako jsou správné vyvažování zátěže mezi jednotlivé servery či automatický výběr nejvhodnějšího serveru
+pro klienta. Tyto problémy zde není nutné řešit -- výsledek práce má sloužit jako jednoduchý a rychlý
+způsob nasazení herního serveru, není tedy z principu vhodný pro dlouhodobé obsluhování velkého množství hráčů.
+
+U poskytovatelů cloudových serverů je možné vybrat množství systémových prostředků, které bude mít aplikace k dispozici.
+Pokud sledujeme vytížení herních serverů v čase, můžeme spatřit jisté vzory, například nárůst hráčů ve večerních hodinách.
+Jedná-li se o velký rozdíl v množství uživatelů, je nutné dynamicky navyšovat systémové prostředky\cite{efficient_resources}.
+Stejně jako dříve zmíněný problém se i tento týká převážně aplikací pro velké množství uživatelů, nemusím ho tedy řešit.
+Již přidělené prostředky nemůže mnou vytvořený systém nijak ovlivnit, jejich výběr tedy necháme na uživateli.
+
+Důležitým prvkem kteréhokoliv systému je zabezpečení. Aplikace musí být s důrazem na bezpečnost nejen provozována,
+ale i vytvářena\cite{newcombe_2012}. Bezpečnostní nedostatek může pro potenciálního útočníka znamenat možnost neoprávněného vstupu do systému.
+Prostuduji tedy dostupná bezpečností řešení pro cloudové aplikace.
+
+Obraz systému musí být schopný nainstalovat a spustit herní server automaticky, případně pouze s nezbytně nutnou interakcí uživatele.
+Prozkoumám dostupná řešení automatické instalace herních serverů. Jejich spouštění i zastavování musí být plně automatizovatelné.
+
 
 % Požadavky jsou těchto typů:
 % \begin{description}
@@ -156,14 +188,14 @@ Přidáme odstavec Text\,--\,zejména ten odborný\,--\,je nutné členit na ods
 % \label{tab:body-dpr}
 % \end{table}
 
-\subsection{Obrazky}
+% \subsection{Obrazky}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{cvut-logo-bw}
-    \caption{Logo FIT. Zdroj: \url{www.cvut.cz}}
-    \label{fig:my_label}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=\textwidth]{cvut-logo-bw}
+%     \caption{Logo FIT. Zdroj: \url{www.cvut.cz}}
+%     \label{fig:my_label}
+% \end{figure}
     
 \chapter{Realizace}
 
