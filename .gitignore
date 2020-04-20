@@ -3,6 +3,7 @@
 *.lof
 *.log
 *.out
+*.toc
 
 ## Bibliography
 *.bbl
