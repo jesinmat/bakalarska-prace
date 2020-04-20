@@ -1,0 +1,10 @@
+## latex
+*.aux
+*.lof
+*.log
+*.out
+
+## Bibliography
+*.bbl
+*.bcf
+*.blg

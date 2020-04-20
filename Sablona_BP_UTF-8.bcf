@@ -1939,7 +1939,9 @@
     <bcf:datasource type="file" datatype="bibtex">ref.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">BS86</bcf:citekey>
+    <bcf:citekey order="1">efficient_resources</bcf:citekey>
+    <bcf:citekey order="2">newcombe_2012</bcf:citekey>
+    <bcf:citekey order="3">efficient_resources</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

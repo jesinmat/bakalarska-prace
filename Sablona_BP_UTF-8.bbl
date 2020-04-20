@@ -19,52 +19,65 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{BS86}{article}{}
-      \name{author}{4}{}{%
-        {{hash=fc83c07bda606ccb8bf28d7c928412ec}{%
-           family={Bentley},
-           familyi={B\bibinitperiod},
-           given={Jon\bibnamedelima Louis},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=9640295a0074d073f271d0a714468c0a}{%
-           family={Sleator},
-           familyi={S\bibinitperiod},
-           given={Daniel\bibnamedelima D.},
-           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=206e5d47c5736119dd3da10ddd0855c6}{%
-           family={Tarjan},
-           familyi={T\bibinitperiod},
-           given={Robert\bibnamedelima E.},
-           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
-        {{hash=4fec1af9aceefa299386a967d15a352d}{%
-           family={Wei},
-           familyi={W\bibinitperiod},
-           given={Victor\bibnamedelima K.},
-           giveni={V\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+    \entry{efficient_resources}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=0f447541c6bd4367b7f5c6e789db5ce1}{%
+           family={{Martin}},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7182dfe9e7cd3d509de6520dbdcac4ce}{%
+           family={{Moorsel}},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           prefix={v.},
+           prefixi={v\bibinitperiod}}}%
+        {{hash=6acfe008160bd357fccf45e9c3a94ad3}{%
+           family={{Morgan}},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {New York, NY, USA}%
-      }
-      \list{publisher}{1}{%
-        {ACM}%
-      }
-      \strng{namehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
-      \strng{fullhash}{1f2a72a1e5af76086b5ab18af3ef67fb}
-      \strng{bibnamehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
-      \strng{authorbibnamehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
-      \strng{authornamehash}{1f2a72a1e5af76086b5ab18af3ef67fb}
-      \strng{authorfullhash}{1f2a72a1e5af76086b5ab18af3ef67fb}
+      \strng{namehash}{af871222a5a669dc575ac5ebb50a2248}
+      \strng{fullhash}{af871222a5a669dc575ac5ebb50a2248}
+      \strng{bibnamehash}{af871222a5a669dc575ac5ebb50a2248}
+      \strng{authorbibnamehash}{af871222a5a669dc575ac5ebb50a2248}
+      \strng{authornamehash}{af871222a5a669dc575ac5ebb50a2248}
+      \strng{authorfullhash}{af871222a5a669dc575ac5ebb50a2248}
       \field{sortinit}{1}
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Communications ACM}
-      \field{number}{4}
-      \field{title}{A locally adaptive data compression scheme}
-      \field{volume}{29}
-      \field{year}{1986}
-      \field{pages}{320\bibrangedash 330}
-      \range{pages}{11}
+      \field{booktitle}{2008 11th IEEE International Symposium on Object and Component-Oriented Real-Time Distributed Computing (ISORC)}
+      \field{title}{Efficient Resource Management for Game Server Hosting}
+      \field{year}{2008}
+      \field{pages}{593\bibrangedash 596}
+      \range{pages}{4}
+    \endentry
+    \entry{newcombe_2012}{book}{}
+      \name{author}{1}{}{%
+        {{hash=70a3716b51d27c3e5cc0406980464fb1}{%
+           family={Newcombe},
+           familyi={N\bibinitperiod},
+           given={Lee},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IT Governance Ltd.}%
+      }
+      \strng{namehash}{70a3716b51d27c3e5cc0406980464fb1}
+      \strng{fullhash}{70a3716b51d27c3e5cc0406980464fb1}
+      \strng{bibnamehash}{70a3716b51d27c3e5cc0406980464fb1}
+      \strng{authorbibnamehash}{70a3716b51d27c3e5cc0406980464fb1}
+      \strng{authornamehash}{70a3716b51d27c3e5cc0406980464fb1}
+      \strng{authorfullhash}{70a3716b51d27c3e5cc0406980464fb1}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Securing Cloud Services: A Pragmatic Approach to Security Architecture in the Cloud}
+      \field{year}{2012}
     \endentry
   \enddatalist
 \endrefsection
