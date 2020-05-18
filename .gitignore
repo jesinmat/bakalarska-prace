@@ -9,3 +9,8 @@
 *.bbl
 *.bcf
 *.blg
+
+# Beamer
+*.nav
+*.snm
+*.vrb
