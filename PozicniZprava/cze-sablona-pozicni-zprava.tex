@@ -1,0 +1,68 @@
+% arara: xelatex: { shell : yes }
+% arara: biber
+% arara: xelatex: { shell : yes }
+% arara: xelatex: { shell : yes }
+% překládejte pomocí příkazu xelatex
+\documentclass{article}
+
+\usepackage{polyglossia}
+\setmainlanguage{czech}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[style=iso-numeric,backend=biber]{biblatex}
+\addbibresource{mybibliographyfile.bib}
+\addbibresource{ref.bib}
+
+%-------- odkomentujte pokud chcete pro seznam literatury používat biblatex, číselné odkazy  -------
+%\usepackage[style=iso-numeric]{biblatex}
+%\addbibresource{mybibliography.bib}
+%----------------------------------------------------------------------------------------------------
+
+\title{Automatický provisioning herních serverů pomocí cloudové image} %doplňte název bakalářské práce
+\author{\small Autor: Matyáš Ješina\\\small Vedoucí: Ing. Tomáš Vondra, Ph.D.\\ \small Studijní obor: Webové a softwarové inženýrství} %doplňte své jméno, jméno vedoucího a svůj studijní obor
+\date{\small \url{jesinmat@fit.cvut.cz}} %doplňte svůj email
+
+\begin{document}
+
+\maketitle              
+
+\paragraph{Klíčová slova}{herní server, počítačová hra, cloud, automatizace, nasazování systému}
+%doplňte cca 5 až 10 klíčových slov oddělených čárkou
+%klíčová slova jsou odborné termíny popisující zaměření práce
+%mohou být vyjádřeny i více slovy (např. "konečný automat")
+
+\section{Úvod}
+%popis problému, který práce řeší + lze popsat i co práce neřeší (pokud je to dle vás potřeba)
+%důvody, proč je zajímavé/důležité se problémem zabývat, přínosy práce
+%vaše motivace pro výběr tématu (je-li dle vás zajímavá)
+%návaznost na jiné závěrečné práce 
+%popis struktury práce (stručný popis následujících sekcí)
+
+\section{Cíl(e) práce}
+%stanovte si cíl(e) pro svou práci (naplnění pak zhodnotíte v závěru)
+%lze rozdělit na hlavní cíle a dílčí (pokud máte více cílů)
+
+\section{Současný stav řešení problému}
+%teoretická část, popis definic a zavedení používaných pojmů/metod atd. 
+%popis dosavadních poznatků (rešerše) k danému problému (kdo a jak problém řešil, k čemu došel, výhody a nevýhody) 
+%tato kapitola prokazuje vaši znalost daného tématu, zde budete nejvíce citovat
+
+\section{Vaše řešení daného problému}
+%zde by měl být popsán váš přístup k řešení daného problému, odůvodnění zvolených technik, experimenty, výpočty, testování, popis implementace apod.
+%jedná se o tvůrčí část práce, tj. musí být poznat, co je vaše práce
+
+\section{Závěr}
+%shrnutí cíle (cílů) práce a zhodnocení jeho (jejich) naplnění
+%uvedení dosažených výsledků, komentář k využití daného řešení v praxi
+%možné podněty pro navazující práce (výhled do budoucna)
+
+% ---- Seznam literatury ----
+% použít můžete prostředí "thebibliography" nebo "biblatex" -- (ne)výhody jednotlivých řešení budou probrány na cvičení
+
+\printbibliography
+
+% BIBLATEX -- odkomentujte, pokud chcete pro seznam literatury používat biblatex
+%\printbibliography
+
+\end{document}

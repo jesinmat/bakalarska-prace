@@ -42,21 +42,21 @@
 \author{Matyáš Ješina} %jméno autora bez akademických titulů
 \supervisor{Ing. Tomáš Vondra, Ph.D.}
 \acknowledgements{Doplňte, máte-li komu a za co děkovat. V~opačném případě úplně odstraňte tento příkaz.}
-\abstractCS{Tato bakalářská práce se zabývá problematikou automatického nasazování herních serverů a jejich provozu v cloudovém prostředí.
-Prozkoumá možnosti nasazování aplikací v cloudu za účelem nalezení nejefektivnějšího způsobu
-a popíše vytvoření obrazu systému, který je pro dané využití vhodný. Tento systém bude schopný podporovat množství herních serverů
-bez nutnosti jeho časté změny a bude snadno rozšiřitelný i pro další hry v budoucnosti.
+\abstractCS{Tato práce se zabývá problematikou automatického nasazování herních serverů a jejich provozu v cloudovém prostředí.
+Zkoumá možnosti nasazování aplikací v cloudu za účelem nalezení nejefektivnějšího způsobu
+a popisuje vytvoření obrazu systému, který je pro dané využití vhodný. Tento systém je schopný podporovat množství herních serverů
+bez nutnosti jeho časté změny a je snadno rozšiřitelný i pro další hry v budoucnosti.
 
-Cílem je vytvořit obraz systému určeného pro provoz herních serverů, který je bezpečný, obsahuje jen nezbytně nutné součásti a dá se jednoduše nasadit v cloudovém prostředí.
-Celý proces bude plně automatizovaný.}
-\abstractEN{This bachelor's thesis addresses the possibilities of automatic deployment and provisioning of game
-servers in cloud environment. It will explore existing possibilities of deploying applications in cloud to find the optimal solution
-and describe the creation of a system image appropriate for this use case. This system will be capable of running various game servers without frequent
-changes to its internal structure and it will be easily modifiable to include more games, if desired.
+Výsledkem je obraz systému určeného pro provoz herních serverů, který je bezpečný, obsahuje jen nezbytně nutné součásti a dá se jednoduše nasadit v cloudovém prostředí.
+Celý proces jeho sestavení je plně automatizovaný.}
+\abstractEN{This thesis addresses the possibilities of automatic deployment and provisioning of game
+servers in cloud environment. It explores existing possibilities of deploying applications in cloud to find the optimal solution
+and describe the creation of a system image appropriate for this use case. This system is capable of running various game servers without frequent
+changes to its internal structure and is easily modifiable to include more games, if desired.
 
-The goal is to create a system image designated to run game servers, which is secure,
+The result si a system image designated to run game servers, which is secure,
 contains only the most necessary components, and can easily be deployed to cloud environment. The entire
-process will be fully automated.}
+process is fully automated.}
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení (číslo 1-6)
 \keywordsCS{herní server, počítačová hra, cloud, automatizace, nasazování systému}
@@ -72,29 +72,33 @@ process will be fully automated.}
 
 \begin{introduction}
 
-Počítačové hry se těší čím dál tím větší popularitě. S rozšířením internetu začaly vznikat také hry
+Počítačové hry se těší velké popularitě. S rozšířením internetu začaly vznikat také hry
 pro více hráčů, které se rychle dostaly do čela žebříčků oblíbenosti a dnes jsou zábavou pro stovky milionů
 hráčů po celém světě.
 
+Mnohé z těchto her umožňují uživatelům vytvořit vlastní herní servery, na kterých je možné hrát s přáteli
+či jinou komunitou.
+
 Pokud chce uživatel zprovoznit herní server, měl by takový postup být jednoduchý a rychlý.
-Existuje zde například možnost provozu serveru na vlastním počítači, zde je však kvalita herního zážitku
-silně ovlivněna konfigurací systému a internetovým připojením. Také je často potřeba pokročilého nastavení
+Existuje zde například možnost provozu serveru na vlastním počítači, zde je však kvalita herního zážitku 
+ovlivněna konfigurací systému a internetovým připojením. Také je často potřeba pokročilého nastavení
 směrovače, který herní server z domácí sítě zpřístupní do internetu.
 
-Tato práce se zaměřuje na další možnost provozu těchto serverů, a to v cloudovém prostředí. Zde z pohledu uživatele 
-zcela odpadají starosti o kvalitu internetového připojení či manuální nastavování síťových prvků. Herní servery
+Tato práce se zaměřuje na další možnost provozu těchto serverů, a to v cloudovém prostředí. Uživatel se tak nemusí zabývat 
+kvalitou internetového připojení či manuálním nastavováním síťových prvků. Herní servery
 pro menší počet hráčů jsou často vytvářeny a rušeny, nasazení v cloudu tedy představuje ideální způsob provozu,
 kde jsou tyto operace jednoduché a automatizovatelné.
 
+Cílem práce je vytvořit obraz systému, který bude pro toto použití vhodný. Uživatel bude mít možnost vybrat
+požadovaný herní server a systém provede všechny operace potřebné k jeho zprovoznění.
+
 Výsledek práce bude prospěšný zejména pro stávající uživatele cloudových služeb, kteří mají alespoň minimální
 zkušenosti s nasazováním obrazů systémů. S minimální interakcí budou mít možnost spustit herní server dle svého
-výběru bez složité instalace a konfigurace.
-
-Pokročilí uživatelé využijí možnosti automatizace celého procesu, která jim zaručí rychlé spuštění vybraného serveru
-za pomoci několika příkazů.
+výběru bez složité instalace a konfigurace. Pokročilí uživatelé využijí možnosti automatizace celého procesu,
+která jim zaručí rychlé spuštění vybraného serveru za pomoci několika příkazů.
 
 Vytvořený obraz tedy musí být snadno dostupný a zdokumentovaný, jednoduchý na nasazení, s minimální náročností 
-na systémové prostředky.
+na systémové prostředky. Bude jej také možné využít v komerčním prostředí.
 
 \end{introduction}
 
@@ -103,18 +107,18 @@ na systémové prostředky.
 Hlavním cílem této práce je vytvořit obraz systému, který bude schopný provozovat herní servery v cloudovém prostředí.
 Tento systém musí být jednoduchý na zprovoznění i úpravy. Bude tedy ideálním kandidátem pro uživatele se základní znalostí
 nasazování serverů v cloudu, který nechce provozovat herní server na vlastní infrastruktuře.
-Zaměřím se na herní servery pro menší množství hráčů, které obecně vyžadují méně systémových prostředků a nastavení
+Práce se zaměří na herní servery pro menší množství hráčů (přibližně do 50), které obecně vyžadují méně systémových prostředků a nastavení
 a proces jejich vytváření je tak jednoduše automatizovatelný.
 
 V první části práce je tedy nutné analyzovat dostupné možnosti a najít výhody a nevýhody daných řešení. Dále je potřeba vybrat
-vhodný operační systém, který splňuje dané požadavky. V dalším kroku porovnám různé možnosti provozu herních serverů
+vhodný operační systém, který splňuje dané požadavky. V dalším kroku budou porovnány různé možnosti provozu herních serverů
 na daném systému a jejich automatizace.
 
-V praktické části implementuji součást pro automatickou instalaci herních serverů a jejich provoz. Jelikož je kladen důraz
+V praktické části bude implementována součást pro automatickou instalaci herních serverů a jejich provoz. Jelikož je kladen důraz
 na jednoduchost provozu, bude tento program pracovat s minimální interakcí uživatele, případně plně automaticky.
 Tato součást také musí být schopna spouštět a zastavovat herní server, bude-li to nutné.
 
-Jelikož se bude po nasazení jednat o veřejně dostupný systém, je zde důležitým prvkem jeho bezpečnost. Prozkoumám tedy možnosti
+Jelikož se bude po nasazení jednat o veřejně dostupný systém, je zde důležitým prvkem jeho bezpečnost. Budou tedy vyhodnoceny možnosti
 jeho zabezpečení, zahrnující například vzdálený přístup.
 
 \chapter[Analýza]{Analýza a návrh}
@@ -123,31 +127,33 @@ jeho zabezpečení, zahrnující například vzdálený přístup.
 % \cite{newcombe_2012}
 % \cite{building_cloud_mog_server}
 
+V této části budou prozkoumány vhodné operační systémy a existující řešení pro vytváření herních serverů v cloudu.
+Bude proveden návrh možného řešení a probrány možné výhody a nevýhody.
+
 \section{Literární rešerše}
 
-V této části prozkoumám existující řešení pro vytváření herních serverů v cloudu a zvážím jejich klady a zápory.
-
-Vzhledem k velké popularitě cloudových služeb existuje množství zdrojů, ze kterých lze čerpat.
+Vzhledem k rostoucí popularitě cloudových služeb \cite{statista_cloud_revenue} existuje množství zdrojů, ze kterých lze čerpat.
 Herní servery se oproti ostatním typům běžných cloudových aplikací odlišují svojí vysokou náročností
 na systémové prostředky, mimo jiné například požadavkem na nízkou latenci.
 
-Při provozování cloudového serveru pro velké množství hráčů\cite{building_cloud_mog_server} je nutné čelit problémům,
-jako jsou správné vyvažování zátěže mezi jednotlivé servery či automatický výběr nejvhodnějšího serveru
-pro klienta. Tyto problémy zde není nutné řešit -- výsledek práce má sloužit jako jednoduchý a rychlý
+Při provozování cloudového serveru pro velké množství hráčů je nutné zajistit správné fungování infrastruktury,
+jako je například správné vyvažování zátěže mezi jednotlivé servery či automatický výběr nejvhodnějšího serveru
+pro klienta \cite{building_cloud_mog_server}. Tyto problémy zde není nutné řešit -- výsledek práce má sloužit jako jednoduchý a rychlý
 způsob nasazení herního serveru, není tedy z principu vhodný pro dlouhodobé obsluhování velkého množství hráčů.
 
 U poskytovatelů cloudových serverů je možné vybrat množství systémových prostředků, které bude mít aplikace k dispozici.
 Pokud sledujeme vytížení herních serverů v čase, můžeme spatřit jisté vzory, například nárůst hráčů ve večerních hodinách.
-Jedná-li se o velký rozdíl v množství uživatelů, je nutné dynamicky navyšovat systémové prostředky\cite{efficient_resources}.
-Stejně jako dříve zmíněný problém se i tento týká převážně aplikací pro velké množství uživatelů, nemusím ho tedy řešit.
-Již přidělené prostředky nemůže mnou vytvořený systém nijak ovlivnit, jejich výběr tedy necháme na uživateli.
+Jedná-li se o velký rozdíl v množství uživatelů, je nutné dynamicky navyšovat systémové prostředky \cite{efficient_resources}.
+Stejně jako dříve zmíněný problém se i tento týká převážně aplikací pro velké množství uživatelů, v rámci této práce tedy tento problém není uvažován.
+Již přidělené prostředky nemůže vytvořený systém nijak ovlivnit, jejich výběr bude tedy ponechán na uživateli před spuštěním.
 
 Důležitým prvkem kteréhokoliv systému je zabezpečení. Aplikace musí být s důrazem na bezpečnost nejen provozována,
-ale i vytvářena\cite{newcombe_2012}. Bezpečnostní nedostatek může pro potenciálního útočníka znamenat možnost neoprávněného vstupu do systému.
-Prostuduji tedy dostupná bezpečností řešení pro cloudové aplikace.
+ale i vytvářena \cite{newcombe_2012}. Bezpečnostní nedostatek může pro potenciálního útočníka znamenat možnost neoprávněného vstupu do systému.
+Budou tedy prozkoumána dostupná bezpečností řešení pro cloudové aplikace.
 
 Obraz systému musí být schopný nainstalovat a spustit herní server automaticky, případně pouze s nezbytně nutnou interakcí uživatele.
-Prozkoumám dostupná řešení automatické instalace herních serverů. Jejich spouštění i zastavování musí být plně automatizovatelné.
+Bude proveden průzkum dostupných možností pro automatickou instalaci herních serverů za účelem výběru vhodného řešení.
+Spouštění i zastavování herních serverů musí být plně automatizovatelné.
 
 
 % Požadavky jsou těchto typů:
@@ -200,23 +206,28 @@ Prozkoumám dostupná řešení automatické instalace herních serverů. Jejich
 \chapter{Realizace}
 
 \begin{conclusion}
+    % Hlavním cílem této práce je vytvořit obraz systému, který bude schopný provozovat herní servery v cloudovém prostředí.
+    % Tento systém musí být jednoduchý na zprovoznění i úpravy.
+    % Jelikož se bude po nasazení jednat o veřejně dostupný systém, je zde důležitým prvkem jeho bezpečnost. Budou tedy vyhodnoceny možnosti
+    % jeho zabezpečení, zahrnující například vzdálený přístup.
     Výsledkem této práce je obraz systému, který je vhodný pro rychlé nasazení herního serveru v cloudu.
     Vhodná volba základní distribuce mi umožnila vytvořit jednoduchý a snadno rozšiřitelný systém,
     který je vhodný zejména pro uživatele bez pokročilých technických znalostí.
 
     Díky použité aplikaci pro správu herních serverů je možné používat systém pro velké množství populárních her.
     Vytvořené skripty se starají o jejich automatickou instalaci a počáteční nastavení, celý systém je tak
-    možné provozovat v cloudu s minimální uživatleskou interakcí.
+    možné provozovat v cloudu s minimální uživatelskou interakcí.
 
     Systém automaticky po spuštění přenastaví administrátorské heslo a přístupové klíče, aby zamezil vstupu
     nepovolaných osob. Pro stahování herních serverů využívá výhradně zabezpečených protokolů.
     Tím je zajištěna bezpečnost proti základním typům útoků.
 
-    Obraz je zveřejněný na webové stránce, kde je také k dispozici návod k jeho použití v angličtině.
+    Obraz je zveřejněný na serveru TurnKey Hub, kde je také k dispozici návod k jeho použití v angličtině.
     Je možné jednoduše přidat podporu pro další herní servery bez nutnosti zásahu do systému pomocí externích skriptů.
 
-    V případě dalšího vývoje je možné systém rozšířit o pokročilé sledování stavu herního serveru a jeho
-    podrobnou uživatelskou konfiguraci.
+    V případě dalšího vývoje je možné systém rozšířit o pokročilé sledování stavu herního serveru. Použitý LinuxGSM podporuje
+    zobrazení základních vlastností serveru, další nástroje (např. GameDig) pak umožňují získat informace o serveru i z externího
+    prostředí. Pro komerční použití by bylo vhodné doplnit systém o možnost podrobné uživatelské konfigurace bez nutnosti FTP přístupu.
 \end{conclusion}
 
 % \bibliographystyle{csn690}
