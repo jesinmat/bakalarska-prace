@@ -10,8 +10,8 @@
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage[hidelinks]{hyperref}
 \usepackage[style=iso-numeric,backend=biber]{biblatex}
-\addbibresource{mybibliographyfile.bib}
 \addbibresource{ref.bib}
 
 %-------- odkomentujte pokud chcete pro seznam literatury používat biblatex, číselné odkazy  -------
@@ -37,32 +37,136 @@
 %důvody, proč je zajímavé/důležité se problémem zabývat, přínosy práce
 %vaše motivace pro výběr tématu (je-li dle vás zajímavá)
 %návaznost na jiné závěrečné práce 
-%popis struktury práce (stručný popis následujících sekcí)
+%popis struktury práce (stručný popis následujících sekcí)3
+Počítačové hry se těší velké popularitě. S rozšířením internetu začaly vznikat také hry
+pro více hráčů, které se rychle dostaly do čela žebříčků oblíbenosti a dnes jsou zábavou pro stovky milionů
+hráčů po celém světě.
+
+Mnohé z těchto her umožňují uživatelům vytvořit vlastní herní servery, na kterých je možné hrát s přáteli
+či jinou komunitou.
+
+Pokud chce uživatel zprovoznit herní server, měl by takový postup být jednoduchý a rychlý.
+Existuje zde například možnost provozu serveru na vlastním počítači, zde je však kvalita herního zážitku 
+ovlivněna konfigurací systému a internetovým připojením. Také je často potřeba pokročilého nastavení
+směrovače, který herní server z domácí sítě zpřístupní do internetu.
+
+Tato práce se zaměřuje na další možnost provozu těchto serverů, a to v cloudovém prostředí. Uživatel se tak nemusí zabývat 
+kvalitou internetového připojení či manuálním nastavováním síťových prvků. Herní servery
+pro menší počet hráčů jsou často vytvářeny a rušeny, nasazení v cloudu tedy představuje ideální způsob provozu,
+kde jsou tyto operace jednoduché a automatizovatelné.
+
+Cílem práce je vytvořit obraz systému, který bude pro toto použití vhodný. Uživatel bude mít možnost vybrat
+požadovaný herní server a systém provede všechny operace potřebné k jeho zprovoznění.
+
+Výsledek práce bude prospěšný zejména pro stávající uživatele cloudových služeb, kteří mají alespoň minimální
+zkušenosti s nasazováním obrazů systémů. S minimální interakcí budou mít možnost spustit herní server dle svého
+výběru bez složité instalace a konfigurace. Pokročilí uživatelé využijí možnosti automatizace celého procesu,
+která jim zaručí rychlé spuštění vybraného serveru za pomoci několika příkazů.
+
+Vytvořený obraz musí být snadno dostupný a zdokumentovaný, jednoduchý na nasazení, s minimální náročností 
+na systémové prostředky. Bude jej také možné využít v komerčním prostředí.
 
 \section{Cíl(e) práce}
 %stanovte si cíl(e) pro svou práci (naplnění pak zhodnotíte v závěru)
 %lze rozdělit na hlavní cíle a dílčí (pokud máte více cílů)
+Hlavním cílem této práce je vytvořit obraz systému, který bude schopný provozovat herní servery v cloudovém prostředí.
+Tento systém musí být jednoduchý na zprovoznění i úpravy. Bude tedy ideálním kandidátem pro uživatele se základní znalostí
+nasazování serverů v cloudu, který nechce provozovat herní server na vlastní infrastruktuře.
+Práce se zaměří na herní servery pro menší množství hráčů (přibližně do 50), které obecně vyžadují méně systémových prostředků a nastavení
+a proces jejich vytváření je tak jednoduše automatizovatelný.
+
+V první části práce je tedy nutné analyzovat dostupné možnosti a najít výhody a nevýhody daných řešení. Dále je potřeba vybrat
+vhodný operační systém, který splňuje dané požadavky. V dalším kroku budou porovnány různé možnosti provozu herních serverů
+na daném systému a jejich automatizace.
+
+V praktické části bude implementována součást pro automatickou instalaci herních serverů a jejich provoz. Jelikož je kladen důraz
+na jednoduchost provozu, bude tento program pracovat s minimální interakcí uživatele, případně plně automaticky.
+Tato součást také musí být schopna spouštět a zastavovat herní server, bude-li to nutné.
+
+Jelikož se bude po nasazení jednat o veřejně dostupný systém, je zde důležitým prvkem jeho bezpečnost. Budou tedy vyhodnoceny možnosti
+jeho zabezpečení, zahrnující například vzdálený přístup.
 
 \section{Současný stav řešení problému}
 %teoretická část, popis definic a zavedení používaných pojmů/metod atd. 
 %popis dosavadních poznatků (rešerše) k danému problému (kdo a jak problém řešil, k čemu došel, výhody a nevýhody) 
 %tato kapitola prokazuje vaši znalost daného tématu, zde budete nejvíce citovat
+Vzhledem k množství herních serverů existují různé způsoby jejich provozu. Aplikace nabízené přes platformu Steam lze spravovat pomocí nástroje
+SteamCMD \cite{steamcmd}, avšak tento způsob neumožňuje provozovat herní servery jiných společností.
+Z tohoto důvodu existují aplikace na správu herních serverů, které umožňují spouštět servery od mnoha společností uživatelsky přívětivou cestou.
+Mezi existující nástroje se řadí například:
+\begin{itemize}
+    \item GameCP -- placený nástroj pro správu herních serverů,
+    \item Pterodactyl -- aplikace pro správu mnoha herních serverů na různých systémech,
+    \item PufferPanel -- podobná aplikace jako Pterodactyl, s menším množstvím podporovaných her,
+    \item LinuxGSM -- sada skriptů pro správu herních serverů,
+    \item Open Game Panel -- správce herních serverů, nyní již neudržovaný.
+\end{itemize}
+Mnohé z těchto aplikací jsou vhodné pro správu velkého množství herních serverů, které běží na různých systémech. Díky webovému rozhraní umožňují snadný
+přístup pro administrátory, případně i zavedení platebního systému pro zákazníky. Jsou tedy vhodné převážně pro komerční subjekty, které se zabývají
+provozem herních serverů pro zákazníky. Většina jejich funkcí je pro tuto práci zbytečná
+
 
 \section{Vaše řešení daného problému}
 %zde by měl být popsán váš přístup k řešení daného problému, odůvodnění zvolených technik, experimenty, výpočty, testování, popis implementace apod.
 %jedná se o tvůrčí část práce, tj. musí být poznat, co je vaše práce
+Požadované řešení lze rozdělit na dvě části:
+\begin{itemize}
+    \item Prostředí, ve kterém aplikace běží -- toto může představovat celý operační systém, případně pouze kontejner.
+    \item Správce herního serveru -- aplikace, která se stará o instalaci a provoz daného herního serveru.
+\end{itemize}
+V prvním kroku je nutné zvolit vhodný operační systém. Mělo by se jednat o rozšířený a snadno použitelný systém,
+který lze provozovat bez vysokých nároků na systémové prostředky. Tento systém by měl být volně použitelný i pro komerční účely.
+Je žádoucí maximální bezpečnost a možnost provozu bez ohledu na hostitelský operační systém, proto byl zvolen kompletní obraz operačního systému
+místo kontejneru.
+
+Pro provoz serverů byla zvolena distribuce TurnKey GNU/Linux \cite{turnkey}, založená na Debianu. TurnKey se specializuje na provoz systému ve virtuálním prostředí,
+umožňuje vytvářet obrazy systému pro populární cloudové platformy (Amazon Web Services, OpenStack) pomocí připravených skriptů a obsahuje
+nástroje pro automatické nastavení systému bez zásahu uživatele.
+
+Vývojáři TurnKey nabízí možnost zveřejnění vzniklého obrazu systému v repozitáři TurnKey Hub, odkud jsou obrazy zdarma nabízeny zájemcům
+včetně možnosti jejich okamžitého nasazení na cloudové služby. Pro zveřejnění v tomto repozitáři musí obraz obsahovat pouze svobodný a otevřený
+software, aby nedošlo k porušení licenčních podmínek.
+
+Dále je třeba určit aplikaci pro správu herních serverů. Také tato aplikace musí mít možnost plné automatizace a provozu serverů bez zásahu uživatele.
+Musí běžet na zvoleném operačním systému a splňovat podmínky pro zveřejnění v TurnKey Hub. Pro správu byla zvolena aplikace LinuxGSM \cite{linuxgsm}, která umožňuje
+automatizaci celého procesu a splňuje všechny požadavky. LinuxGSM podporuje přes 100 různých herních serverů a díky otevřenosti zdrojového kódu je možné přidat podporu
+i pro budoucí hry.
+
+Pro integraci těchto částí byly vytvořeny dva projekty. Prvním z nich je sada skriptů pro automatizaci použití LinuxGSM. Umožňuje jedním příkazem provést stažení LinuxGSM,
+jeho nainstalování, zvolení hry, i její následnou základní konfiguraci. O samotnou instalaci a spuštění hry se pak stará zmíněný správce herních serverů.
+Tato sada není závislá na konkrétním systému a lze ji použít i v jiných případech.
+
+Druhou součástí je pak samotný obraz operačního systému. Obsahuje interaktivního grafického průvodce pro uživatele, kterému umožní vybrat požadovaný herní server a provést
+jeho základní nastavení, po kterém dojde ke spuštění automatické instalace. V případě provozu v cloudovém prostředí pak umožňuje převzít potřebné informace z externího zdroje
+a provést instalaci herního serveru zcela bez zásahu uživatele. Tento obraz lze sestavit pomocí připravených skriptů v systému TurnKey GNU/Linux.
+
 
 \section{Závěr}
 %shrnutí cíle (cílů) práce a zhodnocení jeho (jejich) naplnění
 %uvedení dosažených výsledků, komentář k využití daného řešení v praxi
 %možné podněty pro navazující práce (výhled do budoucna)
+Výsledkem této práce je obraz systému, který je vhodný pro rychlé nasazení herního serveru v cloudu.
+Vhodná volba základní distribuce mi umožnila vytvořit jednoduchý a snadno rozšiřitelný systém,
+který je vhodný zejména pro uživatele bez pokročilých technických znalostí.
+
+Díky použité aplikaci pro správu herních serverů je možné používat systém pro velké množství populárních her.
+Vytvořené skripty se starají o jejich automatickou instalaci a počáteční nastavení, celý systém je tak
+možné provozovat v cloudu s minimální uživatelskou interakcí.
+
+Systém automaticky po spuštění přenastaví administrátorské heslo a přístupové klíče, aby zamezil vstupu
+nepovolaných osob. Pro stahování herních serverů využívá výhradně zabezpečených protokolů.
+Tím je zajištěna bezpečnost proti základním typům útoků.
+
+Obraz je zveřejněný na serveru TurnKey Hub, kde je také k dispozici návod k jeho použití v angličtině.
+Je možné jednoduše přidat podporu pro další herní servery bez nutnosti zásahu do systému pomocí externích skriptů.
+
+V případě dalšího vývoje je možné systém rozšířit o pokročilé sledování stavu herního serveru. Použitý LinuxGSM podporuje
+zobrazení základních vlastností serveru, další nástroje (např. GameDig) pak umožňují získat informace o serveru i z externího
+prostředí. Pro komerční použití by bylo vhodné doplnit systém o možnost podrobné uživatelské konfigurace bez nutnosti FTP přístupu.
 
 % ---- Seznam literatury ----
 % použít můžete prostředí "thebibliography" nebo "biblatex" -- (ne)výhody jednotlivých řešení budou probrány na cvičení
 
 \printbibliography
-
-% BIBLATEX -- odkomentujte, pokud chcete pro seznam literatury používat biblatex
-%\printbibliography
 
 \end{document}
