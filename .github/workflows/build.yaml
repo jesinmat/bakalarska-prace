@@ -18,7 +18,7 @@ jobs:
           sudo apt install python-pygments
           
       - name: Run Arara
-        run: arara BP_Jesina_Matyas.tex
+        run: arara BP_Jesina_Matyas_2020.tex
 
       - name: Upload Data as Artifact
         uses: actions/upload-artifact@master
