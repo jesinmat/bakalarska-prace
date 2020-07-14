@@ -15,3 +15,6 @@
 *.snm
 *.vrb
 *.run.xml
+
+# Generated pdf
+BP_Jesina_Matyas_2020.pdf
