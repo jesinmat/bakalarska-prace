@@ -5,6 +5,8 @@
 *.out
 *.toc
 
+*.lol
+
 ## Bibliography
 *.bbl
 *.bcf
