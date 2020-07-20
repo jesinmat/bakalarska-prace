@@ -5,14 +5,38 @@ Vzhledem k velkému množství herních serverů existuje také mnoho způsobu j
 lze například spravovat pomocí nástroje SteamCMD \cite{steamcmd}, avšak tento způsob neumožňuje provozovat herní servery jiných společností.
 Z tohoto důvodu existují aplikace na správu herních serverů, které umožňují spouštět servery od mnoha společností uživatelsky přívětivou cestou.
 Tyto aplikace jsou zpravidla provozovány v samostatném operačním systému, aby byl zajištěn plynulý chod.
-Mezi existující nástroje se řadí například:
-\begin{itemize}
-    \item GameCP -- placený nástroj pro správu herních serverů,
-    \item Pterodactyl -- aplikace pro správu mnoha herních serverů na různých systémech,
-    \item PufferPanel -- podobná aplikace jako Pterodactyl, s menším množstvím podporovaných her,
-    \item LinuxGSM -- sada skriptů pro správu herních serverů,
-    \item Open Game Panel -- správce herních serverů, nyní již neudržovaný.
-\end{itemize}
-Mnohé z těchto aplikací jsou vhodné pro správu velkého množství herních serverů, které běží na různých systémech. Díky webovému rozhraní umožňují snadný
-přístup pro administrátory, případně i zavedení platebního systému pro zákazníky. Jsou tedy vhodné převážně pro komerční subjekty, které se zabývají
-provozem herních serverů pro zákazníky. Většina jejich funkcí je pro tuto práci zbytečná.
+Mnohé z nich podporují systém plateb za provoz herních serverů a jsou tak vhodné pro komerční využití.
+
+\section{GameCP}
+
+Jedním z pokročilých nástrojů pro správu herních serverů je Game Control Panel \cite{gamecp}. Jedná se o administrátorský nástroj pro společnosti
+zabývající se pronájmem herních serverů. Tato aplikace umožňuje uživatelům spravovat velké množství herních serverů pomocí webového klienta,
+který je přehledný a snadno přizpůsobitelný. Aplikace podporuje možnost evidence plateb za herní servery a poskytuje prostředí pro poskytování
+podpory klientům, kteří si herní servery pronajímají. Kromě herních serverů podporuje nástroj také práci s programy pro komunikaci, jako jsou TeamSpeak
+nebo Ventrilo. Jedná se o placenou aplikaci s měsíčním předplatným bez dostupného zdrojového kódu.
+
+\section{Pterodactyl}
+
+Pterodactyl \cite{pterodactyl} je dalším z nástrojů pro správu herních serverů, který poskytuje přehledné webové rozhraní pro vytváření herních serverů.
+Podporuje množství herních serverů a umožňuje uživatelům vytvářet instance serverů pomocí Docker kontejnerů. Jedná se o bezplatný nástroj
+s volně dostupným zdrojovým kódem, který podporuje provoz množství herních serverů na jednom zařízení. Tento systém je aktivně vyvíjen komunitou
+a zakládá si na jednoduchosti a kvalitní dokumentaci. API umožňuje komplexní přístup k jednotlivým funkcím a nabízí tak možnost automatizace
+vytváření serverů.
+
+\section{GameserverApp}
+
+Dalším z existujících placených nástrojů je GameserverApp \cite{gameserverapp}. Jedná se o systém zaměřený na propojení komunikační platformy Discord s herními servery.
+Umožňuje zpoplatnění herních funkcí a poskytování speciálních funkcí na plaftormě Discord platícím hráčům. Podporuje automatizované vytváření herních serverů, nabízí však jen
+minimální množství her. Pro uživatele bez vlastního serveru poskytuje také pronájem vlastních serverů. Nástroj je zpoplatněný s neveřejným zdrojovým kódem.
+
+% Mezi existující nástroje se řadí například:
+% \begin{itemize}
+%     \item GameCP -- placený nástroj pro správu herních serverů,
+%     \item Pterodactyl -- aplikace pro správu mnoha herních serverů na různých systémech,
+%     \item PufferPanel -- podobná aplikace jako Pterodactyl, s menším množstvím podporovaných her,
+%     \item LinuxGSM -- sada skriptů pro správu herních serverů,
+%     \item Open Game Panel -- správce herních serverů, nyní již neudržovaný.
+% \end{itemize}
+% Mnohé z těchto aplikací jsou vhodné pro správu velkého množství herních serverů, které běží na různých systémech. Díky webovému rozhraní umožňují snadný
+% přístup pro administrátory, případně i zavedení platebního systému pro zákazníky. Jsou tedy vhodné převážně pro komerční subjekty, které se zabývají
+% provozem herních serverů pro zákazníky. Většina jejich funkcí je pro tuto práci zbytečná.
