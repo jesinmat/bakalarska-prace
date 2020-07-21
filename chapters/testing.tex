@@ -1,1 +1,37 @@
 \chapter{Testování}
+
+Tato kapitola se zaměřuje na testování součástí vytvořeného systému. Testy byly prováděny
+manuálně, aby byla zajištěna kontrola uživatelského rozhraní. Cílem těchto testů je určit,
+zda je systém funkční a splňuje stanovené požadavky. V následujících sekcích je uvedeno několik
+vybraných testů.
+
+\section{Automatické sestavení systému}
+
+Tento test ověřuje, zda je možné automaticky sestavit obraz operačního systému. Pomocí vývojového prostředí
+TKLDev dochází k vytvoření obrazu ve formátu ISO, který je dále upravován pro použití u poskytovatelů
+cloudových služeb. Sestavení nového obrazu operačního systému je dále nutné provádět pouze z důvodu
+aktualizace na novou verzi systému Debian. Vzhledem k tomu, že k vydání nové verze dochází přibližně
+v intervalu dvou let \cite{debian_release_stats}, nebylo vhodné tento test automatizovat.
+
+\section{Interaktivní instalace a konfigurace}
+
+Tento test probíhá v prostředí s interaktivním přístupem. Ověřuje se, zda je systém možné interaktivně nainstalovat, provést jeho
+prvotní konfiguraci, vybrat požadovaný herní server a zadat údaje potřebné k jeho spuštění. Po skončení tohoto testu
+je herní server spuštěný a lze se k němu připojit. Vhodným prostředím pro tento test je lokální virtuální stroj.
+Testuje se obraz ve formátu ISO.
+
+\section{Interaktivní konfigurace}
+
+Test ověřuje správnou funkčnost interaktivní konfigurace poté, co dojde k automatické instalaci bez zásahu uživatele.
+Tento případ nastává, pokud uživatel spustí obraz v cloudovém prostředí bez poskytnutí inicializačních údajů. Systém
+musí být schopen provést prvotní spuštění a konfiguraci nezbytných součástí bez zásahu uživatele.
+Po prvním přihlášení vyplní uživatel nezbytné údaje a následně dojde a k instalaci a spuštění herního serveru.
+% Během tohoto spuštění dojde k vygenerování náhodného hesla pro administrátorský účet. Uživatel se poté zpravidla přihlašuje
+% pomocí SSH klienta s přednastaveným klíčem, který byl zvolen před prvním spuštěním v cloudové službě.
+% Při prvním přihlášení dojde ke spuštění 
+
+\section{Automatická konfigurace}
+
+V průběhu tohoto testu dochází k ověření správné funkce systému při plně automatickém provozu bez zásahu uživatele.
+Veškeré potřebné údaje jsou před prvním spuštěním systému předány pomocí inicializačního skriptu. Dojde k automatickému nastavení
+všech potřebných parametrů a následně ke spuštění vybraného herního serveru. 
