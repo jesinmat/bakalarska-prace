@@ -18,5 +18,8 @@
 *.vrb
 *.run.xml
 
+# Minted
+_minted*
+
 # Generated pdf
 BP_Jesina_Matyas_2020.pdf

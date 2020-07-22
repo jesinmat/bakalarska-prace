@@ -2,24 +2,71 @@
 
 V této kapitole je popsán výběr technologií vhodných pro tvorbu požadovaného systému.
 Vzhledem k množství existujících her a četnosti jejich aktualizací není vhodné vytvářet vlastní
-systém pro jejich správu, bude tedy nezbytné využít již existujících správců herních serverů.
+systém pro jejich správu, bude tedy nezbytné využít již existujících správců herních serverů a nalézt vhodný
+operační systém.
 
 \section{Operační systém}
 
 Tato sekce uvede možné operační systémy pro provoz herních serverů v cloudovém prostředí a zhodnotí
 jejich výhody a nevýhody. Budou zde zhodnoceny pouze obecně rozšířené serverové operační systémy \cite{server_os_share} a jejich deriváty,
-aby byla zajištěna podpora a maximální možná bezpečnost.
+aby byla zajištěna podpora a maximální možná bezpečnost. Přestože je možné provozovat herní server i na operačním systému
+určeném pro osobní počítače, tyto systémy často obsahují grafické rozhraní a nabízí pouze interaktivní instalaci, která
+pro hledané využití není vhodná.
+
 
 \subsection{Windows Server}
 
-Jeden z nejrozšířenějších operačních systémů pro serverové využití. Jedná se o komplexní systém s relativně velkými požadavky na
-systémové prostředky, který je vhodný i pro rozsáhlé aplikace. Pravidelné aktualizace zajišťují bezpečnost, k dispozici je technická
+Jeden z nejrozšířenějších operačních systémů pro serverové využití, který je vhodný i pro rozsáhlé aplikace.
+V porovnání s ostatními systémy se Windows Server vyznačuje vysokými požadavky na
+systémové prostředky \cite{windows_server_reqs}. Pravidelné aktualizace zajišťují bezpečnost, k dispozici je technická
 podpora pro zákazníky. Windows Server je systém s uzavřeným zdrojovým kódem a pro jeho provozování je nutné zakoupit licenci,
 není tedy vhodný pro spuštění jednoduchého herního serveru.
 
 \subsection{Linux}
 
+Vzhledem k množství existujících distribucí Linuxu bude v této části uvedeno pouze několik vzorových distribucí.
+Během rešerše vhodných operačních systémů bylo zkoumáno množství distribucí, které jsou použitelné pro provoz
+herních serverů. Mnohé z nich jsou založeny na podobných principech, pro účely této kapitoly tedy nemá smysl uvádět všechny.
 
+\subsubsection{Ubuntu Server}
+
+Tento pokročilý operační systém pro provoz serverů, vyvíjený společností Canonical, se vyznačuje širokou podporou nástrojů a pravidelnými bezpečnostními
+aktualizacemi. Podobně jako ostatní distribuce Linuxu i tato nabízí otevřený zdrojový kód a je volně využitelná. I přes uvedené výhody se však stále jedná o
+rozsáhlý systém, vyžadující značné množství systémových prostředků \cite{ubuntu_server_reqs}.
+
+\subsubsection{Red Hat Enterprise Linux}
+
+% Red Hat Enterprise Linux nabízí ... 
+TODO
+
+\subsubsection{TurnKey GNU/Linux}
+
+Operační systém TurnKey GNU/Linux vychází z rozšířené distribuce Debian. Jedná se o distribuci Linuxu zaměřenou na nasazení jedné aplikace v cloudovém prostředí
+či na virtuálním stroji, která nabízí možnost automatické instalace i počáteční konfigurace. Úzké zaměření umožňuje snížit nároky na systémové prostředky
+při zachování pouze nezbytných součástí pro bezpečný provoz v cloudovém prostředí. Díky otevřenému zdrojovému kódu a svobodné licenci je možné
+tento systém provozovat bez omezení i pro komerční využití. Pro vývojáře je k dispozici dokumentace, pomocí které lze do systému snadno zakomponovat
+nové aplikace.
+
+\section{Sestavení obrazu systému}
+
+K sestavení obrazu systému včetně součásti k provozu herního serveru je nutné zvolit vhodný nástroj. Takový nástroj
+musí být schopný automaticky vytvořit spustitelný obraz systému, a to nejen pro provoz v cloudovém prostředí, ale i
+v interaktivním prostředí virtuálního stroje.
+
+TurnKey GNU/Linux již nabízí nástroje pro sestavení obrazů s vlastní aplikací. Poskytované skripty podporují tvorbu formátů
+pro virtuální stroje i pro množství poskytovatelů cloudových služeb a poskytují možnost plné automatizace procesu sestavení.
+Pro požadované využití jsou tedy vhodným prostředkem.
 
 \section{Správce herních serverů}
-Nástroj LinuxGSM je zaměřen na jednoduchou instalaci a správu herních serverů pomocí skriptů z prostředí příkazové řádky \cite{linuxgsm}. 
+
+Nezbytnou součástí pro správu velkého množství her je aplikace pro správu herních serverů. V předchozích kapitolách
+byla uvedena některá existující řešení tohoto problému, která se vyznačovala velkým množstvím funkcí včetně
+evidence plateb, propojení herních serverů se sociálními platformami či pokročilým webovým rozhraním.
+Tyto funkce však nejsou pro provoz herního serveru nezbytně nutné a proto nebudou podobné komplexní systémy v této kapitole zahrnuty.
+
+\subsection{LinuxGSM}
+
+Nástroj LinuxGSM \cite{linuxgsm} je zaměřen na jednoduchou instalaci a správu herních serverů pomocí skriptů z prostředí příkazové řádky.
+Jedná se o minimalistický systém skriptů, který umožňuje v rámci aktuálního systému stahovat, instalovat a provozovat herní servery.
+Tento bezplatný nástroj podporuje více než 100 různých herních serverů a díky otevřenému zdrojovému kódu je uživatelům umožněno aktualizovat
+a přidávat nové herní tituly. Mezi pokročilé funkce patří zálohování serverů, monitorování jejich stavu či zasílání upozornění při definované akci.
