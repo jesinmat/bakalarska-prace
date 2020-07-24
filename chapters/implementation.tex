@@ -27,7 +27,7 @@ také tvorbu obrazů určených k provozu u poskytovatelů cloudových služeb.
 
 \section{Ukázky}
 
-\subsection{Interaktivní výběr hry}
+\subsection{Interaktivní výběr herního serveru}
 
 Na obrázku \ref{fig:game-selection} je zobrazen interaktivní výběr herního serveru. Tento výběr je automaticky
 k dispozici při prvním spuštění systému, pokud uživatel neurčil herní server pomocí inicializačního skriptu.
@@ -39,30 +39,63 @@ k dispozici při prvním spuštění systému, pokud uživatel neurčil herní s
     \label{fig:game-selection}
 \end{figure}
 
-\subsection{Automatický výběr hry}
+\subsection{Automatický výběr herního serveru}
 
 V případě plně automatického nasazení herního serveru je nutné použít inicializační skript, který před prvním spuštěním systému
 zapíše do souboru \mintinline{shell}{/etc/inithooks.conf} potřebná data pro automatickou konfiguraci systému.
-V ukázce \ref{code:init-script} je uveden inicializační skript, pomocí kterého dojde k instalaci herního serveru pro hru \mintinline{shell}{Minecraft}
+V ukázce \ref{code:init-script} je uveden inicializační skript, pomocí kterého dojde k instalaci herního serveru pro hru \mintinline{shell}{GTA: San Andreas Multiplayer}
 včetně nastavení administrátora serveru.
 
-\begin{listing}[h]
+\newpage
+
+\begin{listing}[h!]
     \caption{Ukázkový inicializační skript}
     \label{code:init-script}
-    \begin{minted}[linenos]{shell}
-        #!/bin/bash
+    \begin{minted}{shell}
+#!/bin/bash
 
-        cat>/etc/inithooks.conf<<EOF
-        export ROOT_PASS=SecretRootPassword
-        export DB_PASS=SecretMysqlPassword
-        export APP_PASS=SecretGameuserPassword
-        export APP_EMAIL=admin@example.com
-        export HUB_APIKEY=SKIP
-        export SEC_UPDATES=FORCE
-        
-        export GAME=mc
-        export GAME_ADMIN=Matyas
-        EOF
+cat>/etc/inithooks.conf<<EOF
+export ROOT_PASS=SecretRootPassword
+export DB_PASS=SecretMysqlPassword
+export APP_PASS=SecretGameuserPassword
+export APP_EMAIL=admin@example.com
+export HUB_APIKEY=SKIP
+export SEC_UPDATES=FORCE
+
+export GAME=samp
+export GAME_RCON_PASS=GameserverAdminPassword
+EOF
+    \end{minted}
+\end{listing}
+
+\subsection{Přidání nové hry}
+
+Ukázky \ref{code:game-props-script} a \ref{code:game-config-script} demonstrují přidání podpory pro nový herní server. Jedná se o dva skripty správce herních serverů,
+které zavádějí podporu pro server hry \mintinline{shell}{Minecraft} a umožňují jeho minimální počáteční konfiguraci.
+Skript \mintinline{shell}{game_properties.sh} zavádí proměnné, které jsou instalačním programem využity k identifikaci herního serveru.
+Druhý skript poté umožňuje nastavit uživatelské jméno administrátora serveru pomocí předdefinované proměnné, případně interaktivně.
+
+\begin{listing}[h]
+    \caption{Skript \mintinline{shell}{game_properties.sh}}
+    \label{code:game-props-script}
+    \begin{minted}{shell}
+GAME="mc"
+GAME_LONG_NAME="Minecraft (Java Edition)"
+    \end{minted}
+\end{listing}
+
+\begin{listing}[h]
+    \caption{Skript \mintinline{shell}{post_install.sh}}
+    \label{code:game-config-script}
+    \begin{minted}{shell}
+#!/bin/bash
+
+# Set server admin
+if [ -z "$GAME_ADMIN" ]; then
+    read -p "Server admin username: " GAME_ADMIN || GAME_ADMIN=''
+    echo
+fi
+run_as_user "echo \"$GAME_ADMIN\" > \"$GAMEDIR/serverfiles/ops.txt\""
     \end{minted}
 \end{listing}
 

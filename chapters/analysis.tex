@@ -1,6 +1,6 @@
 \chapter[Analýza a návrh]{Analýza a návrh}
 
-\section{Požadavky}
+\section{Popis problému}
 
 Vzhledem k rostoucí popularitě cloudových služeb \cite{statista_cloud_revenue} existuje množství zdrojů, ze kterých lze čerpat.
 Herní servery se oproti ostatním typům běžných cloudových aplikací odlišují svojí vysokou náročností
@@ -25,6 +25,24 @@ Obraz systému musí být schopný nainstalovat a spustit herní server automati
 Bude proveden průzkum dostupných možností pro automatickou instalaci herních serverů za účelem výběru vhodného řešení.
 Spouštění i zastavování herních serverů musí být plně automatizovatelné.
 
+\section{Funkční požadavky}
+
+Funkční požadavky určují akce, které je uživatel schopný provést v rámci systému vykonat.
+Popisují jednotlivé požadavky, které musí systém splňovat, aby byl použitelný k provozu herního serveru.
+
+\begin{itemize}
+    \item \textbf{Spuštění systému} - systém lze spustit automatizovatelnou cestou.
+    \item \textbf{Prvotní nastavení} - systém je schopen provést prvotní nastavení automaticky, či pomocí přehledné interakce s uživatelem. Tato inicializace
+                                       musí zajistit, aby se do systému mohl připojit pouze daný uživatel.
+    \item \textbf{Výběr herního serveru} - systém umožní uživateli vybrat požadovaný herní server a provést jeho základní nastavení.
+    \item \textbf{Automatická instalace a spuštění herního serveru} - systém bez další interakce s uživatelem nainstaluje a spustí herní server.
+    \item \textbf{Spuštění herního serveru po výpadku} - V případě zastavení a opětovného spuštění systému dojde k automatickému spuštění nainstalovaného herního serveru.
+\end{itemize}
+
 \section{Operační systém}
+
+K tvorbě obrazu byl vybrán operační systém TurnKey GNU/Linux, který je primárně určený pro provoz aplikací v cloudovém prostředí.
+
+\subsection{}
 
 \section{Správce herních serverů}
