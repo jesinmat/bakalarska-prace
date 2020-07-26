@@ -102,6 +102,28 @@ Je nezbytné implementovat mechanismus, který umožní uživateli provést toto
 Pokud uživatel spustí instanci systému bez předání potřebných dat, dojde k aktivaci mechanismu, který zajistí pozastavení veškeré činnosti systému do doby, než
 se uživatel připojí k systému vzdáleně.
 
+\subsection{Podporované platformy}
+
+Systém musí být možné provozovat na různých cloudových platformách. Je třeba zavést podporu těchto platforem bez nutnosti manuálního přizpůsobování obrazu.
+Dále je nezbytné podporovat standardní instalaci pro využití na standardních a virtuálních strojích.
+
+\subsection{Bezpečnost}
+
+Pro zajištění bezpečnosti provozu systému musí být zajištěn bezpečný přístup do systému. Pro komunikaci musí být využity šifrované kanály, autentizace
+musí zajistit, aby se v žádném bodě provozu systému nemohl do systému přihlásit uživatel bez znalosti potřebných údajů.
+
+\subsection{Dostupnost}
+
+Přestože samotná dostupnost systému je značně ovlivněna poskytovatelem cloudových služeb, lze provést některé optimalizační kroky v rámci systému.
+Pokud nastane výpadek služby či dojde k restartování systému, musí automaticky dojít k jejímu opětovnému spuštění, aby byla zajištěna dostupnost i v případě
+momentální absence administrátora serveru.
+
+\subsection{Rozšiřitelnost}
+
+Pro zajištění podpory herních serverů je nutné vždy instalovat jejich nejnovější verzi, kterou používají i klientská zařízení.
+Vzhledem k četnosti aktualizací některých serverů je třeba zajistit, aby nebylo pro jejich podporu nutné znovu sestavovat obraz systému.
+Bez opětovného sestavení musí být také možné přidat podporu pro nové herní servery. 
+
 
 % \section{Operační systém}
 

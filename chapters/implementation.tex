@@ -1,8 +1,71 @@
 \chapter{Implementace}
 
 Tato kapitola popisuje proces implementace navrhnutého řešení a popisuje použité nástroje.
-Systém byl implementován podle návrhu v předchozí kapitole.
 Dále jsou zde obsaženy vybrané ukázky kódu a výsledné podoby systému.
+
+\section{Rozdělení komponent}
+
+Po analýze problému byla implementace rozdělena na dvě samostatné komponenty. Modularita
+přináší jednoznačné oddělení odpovědností a zajišťuje jednodušší úpravu jednotlivých částí
+díky nižší provázanosti.
+
+\subsection{Komponenta Systém}
+
+Komponenta Systém je součástí obrazu systému a zajišťuje začlenění výběru instalace herního serveru do prvního spuštění.
+Zavádí také službu pro provoz herního serveru, která se stará o jeho spuštění po opětovném spuštění systému.
+
+\subsubsection{Příprava systému}
+
+Pro přípravu systému na instalaci herního serveru byl využit mechanismus \mintinline{shell}{inithooks}, který umožňuje
+spustit libivolný skript při prvním spuštění systému.
+Provoz aplikace s administrátorskými oprávněními představuje v případě jejího napadení hrozbu pro systém.
+Z tohoto důvodu je pro provoz herního serveru vytvořen samostatný uživatelský účet. O vytvoření uživatele se stará skript,
+který dále vytvoří potřebné složky pro instalaci herního serveru.
+
+\subsubsection{Výběr herního serveru}
+
+Po vytvoření uživatele a prvotním nastavení systému je nutné provést výběr herního serveru.
+Pokud uživatel při vytváření instance systému zadal inicializační skript s potřebnými daty, vytvořený skript tato
+data načte a podle proměnné \mintinline{shell}{GAME} zvolí herní server.
+
+V případě interaktivního přístupu bez inicializačního skriptu skript stáhne obsah repozitáře s Komponentou Herní server,
+ze kterého získá seznam aktuálně podporovaných her. Tento seznam tudíž není pevně daný v obrazu systému a je možné
+přidávat podporu nových serverů bez nutnosti vytvoření nového obrazu.
+Následně skript zobrazí okno výběru herního serveru pomocí knihovny \mintinline{shell}{pythondialog}, kterou využívá mechanismus
+\mintinline{shell}{inithooks}. Z pohledu uživatele se tak jedná o graficky navazující, jednolitý systém. Příklad tohoho výběru
+je možné vidět na obrázku \ref{fig:game-selection} v sekci Ukázky.
+
+\subsubsection{Instalace herního serveru}
+
+Instalace a konfigurace herního serveru je dále uskutečněna pomocí stažené Komponenty Herní server. Tento proces bude popsán v části věnované dané komponentě.
+
+\subsubsection{Systémová služba}
+
+Pro zajištění automatického běhu herního serveru po spuštění systému je zavedena systémová služba, která zajišťuje správné spouštění
+a ukončování herního serveru.
+
+\subsection{Komponenta Herní server}
+
+Komponenta Herní server slouží k automatické instalaci a nastavení herních serverů. Tato komponenta je zcela nezávislá na
+vybraném operačním systému a je tedy možné ji využít pro instalaci herního serveru v dalších distribucích Linuxu.
+Využívá správce herních serverů LinuxGSM, který umožňuje servery automaticky stahovat a instalovat.
+
+\subsubsection{Instalace herního serveru}
+
+Před instalací vybraného herního serveru provede vytvořený skript instalaci nejčastěji využívaných balíčků pro provoz serverů.
+Pomocí argumentů při spouštění skriptu lze kromě herního serveru nastavit i požadované umístění herního serveru a účet, pomocí kterého
+se bude herní server spouštět. Pro zvýšení bezpečnosti není povoleno přiřadit herní server účtu `root`.
+
+Následně dojde ke stažení správce LinuxGSM a jeho spuštění za účelem instalace herního serveru. LinuxGSM podporuje automatickou instalaci
+potřebných balíčků pro provoz serveru, po stažení a instalaci je tedy herní server připraven ke spuštění.
+
+\subsubsection{Nastavení herního serveru}
+
+Komponenta podporuje volitelné spuštění skriptů před a po instalaci serveru. Tyto skripty slouží
+ke specifické konfiguraci systému a k následnému nastavení herního serveru před jeho spuštěním.
+Údaje pro nastavení herního serveru lze předat pomocí předem nastavených proměnných v příkazové řádce. V případě absence těchto údajů
+je uživatel vyzván k jejich doplnění v průběhu instalace.
+
 
 \section{Nástroje}
 
