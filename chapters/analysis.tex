@@ -80,6 +80,17 @@ grafický výstup. Ukázka tohoto mechanismu je k dispozici na obrázku \ref{fig
 V případě spuštění bez grafického výstupu a uživatelských dat čeká systém na první přihlášení uživatele pomocí SSH s využitím přednastaveného klíče (přihlášení heslem
 není k dispozici, neboť uživatel nenastavil heslo administrátora). Po prvním přihlášení dojde k automatickému spuštění zmíněného grafického průvodce.
 
+Systém dále obsahuje interaktivní konfigurační prostředí, která se zobrazí automaticky po spuštění systému.
+Prostředí umožňuje nastavit základní parametry systému a aplikací, bude vhodné prozkoumat možnosti integrace herní komponenty do této aplikace.
+Ukázka tohoto prostředí je na obrázku \ref{fig:confconsole}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{chapters/images/confconsole.pdf}
+    \caption{Konfigurační aplikace}
+    \label{fig:confconsole}
+\end{figure}
+
 \subsection{Výběr herního serveru}
 
 K interaktivnímu výběru herního serveru dojde v případě, kdy uživatel nevybere požadovaný herní server pomocí uživatelského skriptu.
@@ -124,10 +135,23 @@ Pro zajištění podpory herních serverů je nutné vždy instalovat jejich nej
 Vzhledem k četnosti aktualizací některých serverů je třeba zajistit, aby nebylo pro jejich podporu nutné znovu sestavovat obraz systému.
 Bez opětovného sestavení musí být také možné přidat podporu pro nové herní servery. 
 
+\section{Přístup k systému}
 
-% \section{Operační systém}
+K zajištění bezpečnosti musí být omezen přístup k systému. Poskytovatelé cloudových služeb
+umožňují omezit množinu portů, které budou na systému dostupné. Pro správu systému a připojení k hernímu
+serveru je však nutné umožňit uživatelům přístup k daným síťovým rozhraním. Tato kapitola popisuje způsob jejich zabezpečení.
 
-% K tvorbě obrazu byl vybrán operační systém TurnKey GNU/Linux, který je primárně určený pro provoz aplikací v cloudovém prostředí.
+TurnKey GNU/Linux standardně obsahuje webové rozhraní,
+díky kterému je možné spravovat systém bez nutnosti přihlašování pomocí SSH. Pro přístup k webové administraci
+je využito šifrované zabezpečení pomocí protokolu HTTPS, potřebný certifikát je vygenerován při prvním spuštění systému.
+Tento certifikát je možné nahradit bezplatným certifikátem Let's Encrypt \cite{lets_encrypt} pomocí konfigurační aplikace systému.
+Do webového prostředí se uživatel přihlašuje pomocí hesla zvoleného při prvním spuštění systému. 
 
-% \section{Správce herních serverů}
+TurnKey GNU/Linux
+neobsahuje výchozí hesla pro služby, není tedy možné přihlásit se do neinicializovaných systémů bez oprávnění.
+V případě automatické inicializace bez interakce s uživatelem nenení možné nastavit heslo administrátorského účtu.
+Uživatel proto při přihlášení do systému prokazuje svoji totožnost pomocí předem vygenerovaného klíče, který
+je zvolen před spuštěním systému. 
 
+Pokud herní server podporuje vzdálený přístup do administrace, musí být při jeho instalaci uživatel vyzván ke změně výchozího hesla.
+V případě jeho napadení útočníkem je nutné omezit dopad na systém. Bude tedy vhodné provozovat herní server s omezenými oprávněními. 

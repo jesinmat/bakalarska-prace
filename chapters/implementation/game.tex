@@ -1,0 +1,21 @@
+\subsection{Komponenta Herní server}
+
+Komponenta Herní server slouží k automatické instalaci a nastavení herních serverů. Tato komponenta je zcela nezávislá na
+vybraném operačním systému a je tedy možné ji využít pro instalaci herního serveru v dalších distribucích Linuxu.
+Využívá správce herních serverů LinuxGSM, který umožňuje servery automaticky stahovat a instalovat.
+
+\subsubsection{Instalace herního serveru}
+
+Před instalací vybraného herního serveru provede vytvořený skript instalaci nejčastěji využívaných balíčků pro provoz serverů.
+Pomocí argumentů při spouštění skriptu lze kromě herního serveru nastavit i požadované umístění herního serveru a účet, pomocí kterého
+se bude herní server spouštět. Pro zvýšení bezpečnosti není povoleno přiřadit herní server účtu `root`.
+
+Následně dojde ke stažení správce LinuxGSM a jeho spuštění za účelem instalace herního serveru. LinuxGSM podporuje automatickou instalaci
+potřebných balíčků pro provoz serveru, po stažení a instalaci je tedy herní server připraven ke spuštění.
+
+\subsubsection{Nastavení herního serveru}
+
+Komponenta podporuje volitelné spuštění skriptů před a po instalaci serveru. Tyto skripty slouží
+ke specifické konfiguraci systému a k následnému nastavení herního serveru před jeho spuštěním.
+Údaje pro nastavení herního serveru lze předat pomocí předem nastavených proměnných v příkazové řádce. V případě absence těchto údajů
+je uživatel vyzván k jejich doplnění v průběhu instalace.
