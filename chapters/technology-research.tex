@@ -51,9 +51,11 @@ nové aplikace.
 
 K sestavení obrazu systému včetně součásti k provozu herního serveru je nutné zvolit vhodný nástroj. Takový nástroj
 musí být schopný automaticky vytvořit spustitelný obraz systému, a to nejen pro provoz v cloudovém prostředí, ale i
-v interaktivním prostředí virtuálního stroje.
+v interaktivním prostředí virtuálního stroje. K tomuto účelu lze použít například nástroj Packer \cite{packer},
+který nabízí automatizovatelné sestavení potřebných obrazů a umožňuje
+přidat podporu pro nové formáty pomocí zásuvných modulů.
 
-TurnKey GNU/Linux již nabízí nástroje pro sestavení obrazů s vlastní aplikací. Poskytované skripty podporují tvorbu formátů
+TurnKey GNU/Linux však již nabízí nástroje pro sestavení obrazů s vlastní aplikací. Poskytované skripty podporují tvorbu formátů
 pro virtuální stroje i pro množství poskytovatelů cloudových služeb a poskytují možnost plné automatizace procesu sestavení.
 Pro požadované využití jsou tedy vhodným prostředkem. Vzhledem ke zmíněným vlastnostem bude tento systém využit pro vytvoření
 požadovaného obrazu.

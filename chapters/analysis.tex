@@ -27,8 +27,8 @@ Spouštění i zastavování herních serverů musí být plně automatizovateln
 
 \section{Funkční požadavky}
 
-Funkční požadavky určují akce, které je uživatel schopný provést v rámci systému vykonat.
-Popisují jednotlivé požadavky, které musí systém splňovat, aby byl použitelný k provozu herního serveru.
+Funkční požadavky definují požadované vlastnosti systému a určují akce, které je uživatel schopný v rámci aplikace vykonat.
+Popisují jednotlivé vlastnosti, které musí systém splňovat, aby byl použitelný k provozu herního serveru.
 
 \begin{itemize}
     \item \textbf{Spuštění systému} - systém lze spustit automatizovatelnou cestou.
@@ -102,7 +102,7 @@ a zohlednila jej ve výběru.
 
 \subsection{Automatická instalace a spuštění herního serveru}
 
-Po výběru herního serveru je nutné tento server nainstalovat. Pro tento účet bude využit správce herních serverů, který dokáže stáhnout potřebné soubory
+Po výběru herního serveru je nutné tento server nainstalovat. Pro tento účel bude využit správce herních serverů, který dokáže stáhnout potřebné soubory
 a provést instalaci. Je tedy třeba vytvořit komponentu, která provede přípravu na instalaci serveru a následně spustí správce.
 
 \subsection{Nastavení herního serveru}
@@ -149,9 +149,8 @@ Do webového prostředí se uživatel přihlašuje pomocí hesla zvoleného při
 
 TurnKey GNU/Linux
 neobsahuje výchozí hesla pro služby, není tedy možné přihlásit se do neinicializovaných systémů bez oprávnění.
-V případě automatické inicializace bez interakce s uživatelem nenení možné nastavit heslo administrátorského účtu.
-Uživatel proto při přihlášení do systému prokazuje svoji totožnost pomocí předem vygenerovaného klíče, který
-je zvolen před spuštěním systému. 
+Uživatel při přihlášení do systému prokazuje svoji totožnost pomocí náhodně vygenerovaného hesla nebo klíče, které
+jsou zvoleny před spuštěním systému. 
 
 Pokud herní server podporuje vzdálený přístup do administrace, musí být při jeho instalaci uživatel vyzván ke změně výchozího hesla.
 V případě jeho napadení útočníkem je nutné omezit dopad na systém. Bude tedy vhodné provozovat herní server s omezenými oprávněními. 
