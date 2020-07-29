@@ -4,7 +4,7 @@ Vygenerovaná PDF jsou dostupná u jednotlivých commitů jako Build Artifacts.
 Pokud chcete přesto vygenerovat PDF sami, níže je uveden návod pro Ubuntu/Debian.
 
 ```shell
-sudo apt install -y biber lmodern python-pip texlive texlive-bibtex-extra texlive-extra-utils texlive-generic-extra texlive-lang-czechslovak texlive-xetex
+sudo apt install -y biber default-jre lmodern python-pip texlive texlive-bibtex-extra texlive-extra-utils texlive-generic-extra texlive-lang-czechslovak texlive-xetex
 
 python -m pip install -U pygments 
 
