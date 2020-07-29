@@ -12,14 +12,15 @@
 *.bcf
 *.blg
 
-# Beamer
+## Beamer
 *.nav
 *.snm
 *.vrb
 *.run.xml
 
-# Minted
+## Minted
 _minted*
+*.pyg
 
 # Generated pdf
 BP_Jesina_Matyas_2020.pdf
