@@ -8,7 +8,8 @@ na systémové prostředky, mimo jiné například požadavkem na nízkou latenc
 
 Při provozování cloudového serveru pro velké množství hráčů je nutné zajistit správné fungování infrastruktury,
 jako je například správné vyvažování zátěže mezi jednotlivé servery či automatický výběr nejvhodnějšího serveru
-pro klienta \cite{building_cloud_mog_server}. Tyto problémy zde není nutné řešit -- výsledek práce má sloužit jako jednoduchý a rychlý
+pro klienta. Dle \cite{building_cloud_mog_server} je již od několika desítek současně připojených klientů vhodné
+používat systém pro rozložení zátěže. Tyto problémy zde není nutné řešit -- výsledek práce má sloužit jako jednoduchý a rychlý
 způsob nasazení herního serveru, není tedy z principu vhodný pro dlouhodobé obsluhování velkého množství hráčů.
 
 U poskytovatelů cloudových serverů je možné vybrat množství systémových prostředků, které bude mít aplikace k dispozici.
@@ -18,7 +19,7 @@ Stejně jako dříve zmíněný problém se i tento týká převážně aplikac�
 Již přidělené prostředky nemůže vytvořený systém nijak ovlivnit, jejich výběr bude tedy ponechán na uživateli před spuštěním.
 
 Důležitým prvkem kteréhokoliv systému je zabezpečení. Aplikace musí být s důrazem na bezpečnost nejen provozována,
-ale i vytvářena \cite{newcombe_2012}. Bezpečnostní nedostatek může pro potenciálního útočníka znamenat možnost neoprávněného vstupu do systému.
+ale i vytvářena \cite{securing_cloud}. Bezpečnostní nedostatek může pro potenciálního útočníka znamenat možnost neoprávněného vstupu do systému.
 Budou tedy prozkoumána dostupná bezpečností řešení pro cloudové aplikace.
 
 Obraz systému musí být schopný nainstalovat a spustit herní server automaticky, případně pouze s nezbytně nutnou interakcí uživatele.
@@ -73,7 +74,7 @@ grafický výstup. Ukázka tohoto mechanismu je k dispozici na obrázku \ref{fig
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\linewidth]{chapters/images/root-pass.pdf}
-    \caption{Interaktivní nastavení systému při prvním spuštění}
+    \caption{Interaktivní nastavení systému při prvním spuštění \cite{turnkey}}
     \label{fig:inithooks-password}
 \end{figure}
 
@@ -87,7 +88,7 @@ Ukázka tohoto prostředí je na obrázku \ref{fig:confconsole}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\linewidth]{chapters/images/confconsole.pdf}
-    \caption{Konfigurační aplikace}
+    \caption{Konfigurační aplikace \cite{turnkey}}
     \label{fig:confconsole}
 \end{figure}
 
@@ -120,8 +121,9 @@ Dále je nezbytné podporovat standardní instalaci pro využití na standardní
 
 \subsection{Bezpečnost}
 
-Pro zajištění bezpečnosti provozu systému musí být zajištěn bezpečný přístup do systému. Pro komunikaci musí být využity šifrované kanály, autentizace
-musí zajistit, aby se v žádném bodě provozu systému nemohl do systému přihlásit uživatel bez znalosti potřebných údajů.
+Pro zajištění bezpečnosti provozu musí být zajištěn bezpečný přístup do systému a k běžícím aplikacím. Dle \cite{securing_cloud} budou
+pro komunikaci využity šifrované kanály, autentizace musí zajistit, aby se v žádném bodě provozu systému nemohl do systému přihlásit uživatel bez znalosti potřebných údajů.
+Budou identifikována další možná bezpečnostní opatření a provedeny potřebné kroky k zajištění bezpečnosti provozu systému.
 
 \subsection{Dostupnost}
 
