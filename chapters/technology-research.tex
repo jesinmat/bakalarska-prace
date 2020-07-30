@@ -23,27 +23,27 @@ není tedy vhodný pro spuštění jednoduchého herního serveru.
 
 \subsection{Linux}
 
-Vzhledem k množství existujících distribucí Linuxu bude v této části uvedeno pouze několik vzorových distribucí.
+Vzhledem k množství existujících distribucí Linuxu bude v této části uvedeno pouze několik vybraných zástupců.
 Během rešerše vhodných operačních systémů bylo zkoumáno množství distribucí, které jsou použitelné pro provoz
 herních serverů. Mnohé z nich jsou založeny na podobných principech, pro účely této kapitoly tedy nemá smysl uvádět všechny.
 
 \subsubsection{Ubuntu Server}
 
-Tento pokročilý operační systém pro provoz serverů, vyvíjený společností Canonical, se vyznačuje širokou podporou nástrojů a pravidelnými bezpečnostními
+Tento pokročilý operační systém \cite{ubuntu_server} pro provoz serverů, vyvíjený společností Canonical, se vyznačuje širokou podporou nástrojů a pravidelnými bezpečnostními
 aktualizacemi. Podobně jako ostatní distribuce Linuxu i tato nabízí otevřený zdrojový kód a je volně využitelná. I přes uvedené výhody se však stále jedná o
 rozsáhlý systém, vyžadující značné množství systémových prostředků \cite{ubuntu_server_reqs}.
 
 \subsubsection{CentOS}
 
 Distribuce Linuxu CentOS je komunitou spravovaný systém, odvozený od komerční distribuce Red Hat Enterprise Linux \cite{centos}. Tento volně dostupný systém
-je vhodný na provoz serverů v cloudovém prostředí díky dlouhodobé podpoře vydaných verzí a stabilitě. 
+je vhodný na provoz serverů v cloudovém prostředí díky dlouhodobé podpoře vydaných verzí a stabilitě. Jedná se o vhodného kandidáta pro provoz herních serverů.
 
 \subsubsection{TurnKey GNU/Linux}
 
 Operační systém TurnKey GNU/Linux \cite{linuxgsm} vychází z rozšířené distribuce Debian. Jedná se o distribuci Linuxu zaměřenou na nasazení jedné aplikace v cloudovém prostředí
 či na virtuálním stroji, která nabízí možnost automatické instalace i počáteční konfigurace. Úzké zaměření umožňuje snížit nároky na systémové prostředky
 při zachování pouze nezbytných součástí pro bezpečný provoz v cloudovém prostředí. Díky otevřenému zdrojovému kódu a svobodné licenci je možné
-tento systém provozovat bez omezení i pro komerční využití. Pro vývojáře je k dispozici dokumentace, pomocí které lze do systému snadno zakomponovat
+tento systém provozovat bez omezení i pro komerční využití. Pro vývojáře je k dispozici dokumentace, pomocí které lze do systému vložit
 nové aplikace.
 
 \section{Sestavení obrazu systému}
@@ -54,14 +54,14 @@ v interaktivním prostředí virtuálního stroje. K tomuto účelu lze použít
 který nabízí automatizovatelné sestavení potřebných obrazů a umožňuje
 přidat podporu pro nové formáty pomocí zásuvných modulů.
 
-TurnKey GNU/Linux však již nabízí nástroje pro sestavení obrazů s vlastní aplikací. Poskytované skripty podporují tvorbu formátů
-pro virtuální stroje i pro množství poskytovatelů cloudových služeb a poskytují možnost plné automatizace procesu sestavení.
-Pro požadované využití jsou tedy vhodným prostředkem. Vzhledem ke zmíněným vlastnostem bude tento systém využit pro vytvoření
+TurnKey GNU/Linux nabízí vlastní nástroje pro sestavení obrazů s připravenou aplikací. Poskytované skripty podporují tvorbu formátů
+pro virtuální stroje i pro množství poskytovatelů cloudových služeb a umožňují plnou automatizaci procesu sestavení.
+Pro požadované využití jsou tedy vhodným prostředkem. Vzhledem ke zmíněným vlastnostem bude tento systém použit pro vytvoření
 požadovaného obrazu.
 
 \section{Správce herních serverů}
 
-Nezbytnou součástí pro správu velkého množství her je aplikace pro správu herních serverů. V předchozích kapitolách
+Nezbytným předpokladem k podpoře velkého množství her je aplikace pro správu herních serverů. V předchozí kapitole
 byla uvedena některá existující řešení tohoto problému, která se vyznačovala velkým množstvím funkcí včetně
 evidence plateb, propojení herních serverů se sociálními platformami či pokročilým webovým rozhraním.
 Tyto funkce však nejsou pro provoz herního serveru nezbytně nutné.

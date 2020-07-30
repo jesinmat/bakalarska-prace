@@ -1,12 +1,12 @@
 \subsection{Komponenta Systém}
 
 Komponenta Systém je součástí obrazu systému a zajišťuje začlenění výběru instalace herního serveru do prvního spuštění.
-Zavádí také službu pro provoz herního serveru, která se stará o jeho spuštění po opětovném spuštění systému.
+Zavádí také službu pro provoz herního serveru, která se stará o jeho spuštění po restartu systému.
 
 \subsubsection{Příprava systému}
 
-Pro přípravu systému na instalaci herního serveru byl využit mechanismus \mintinline{shell}{inithooks}, který umožňuje
-spustit libivolný skript při prvním spuštění systému.
+Pro přípravu prostředí na instalaci herního serveru byl využit mechanismus \mintinline{shell}{inithooks}, který umožňuje
+spustit libovolný skript při prvním spuštění systému.
 Provoz aplikace s administrátorskými oprávněními představuje v případě jejího napadení hrozbu pro systém.
 Z tohoto důvodu je pro provoz herního serveru vytvořen samostatný uživatelský účet. O vytvoření uživatele se stará skript,
 který dále vytvoří potřebné složky pro instalaci herního serveru.
@@ -17,8 +17,8 @@ Po vytvoření uživatele a prvotním nastavení systému je nutné provést vý
 Pokud uživatel při vytváření instance systému zadal inicializační skript s potřebnými daty, vytvořený skript tato
 data načte a podle proměnné \mintinline{shell}{GAME} zvolí herní server.
 
-V případě interaktivního přístupu bez inicializačního skriptu skript stáhne obsah repozitáře s Komponentou Herní server,
-ze kterého získá seznam aktuálně podporovaných her. Tento seznam tudíž není pevně daný v obrazu systému a je možné
+V případě interaktivního přístupu bez inicializačního skriptu dojde ke stažení repozitáře s Komponentou Herní server,
+ze kterého je získán seznam aktuálně podporovaných her. Tento seznam tudíž není pevně daný v obrazu systému a je možné
 přidávat podporu nových serverů bez nutnosti vytvoření nového obrazu.
 Následně skript zobrazí okno výběru herního serveru pomocí knihovny \mintinline{shell}{pythondialog}, kterou využívá mechanismus
 \mintinline{shell}{inithooks}. Z pohledu uživatele se tak jedná o graficky navazující, jednolitý systém. Příklad tohoho výběru
