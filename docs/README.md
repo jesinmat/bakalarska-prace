@@ -57,7 +57,7 @@ novější systému verze upravte název souboru.
     ```shell
     ./bin/generate-signature /mnt/isos/turnkey-gameserver-16.0-buster-amd64.iso
     ```
-4. V době psaní textu je v repozitáři chybně umístěná složka, která zabraňuje
+4. V době psaní textu je v systému `buildtasks` chybně umístěná složka, která zabraňuje
 vytvoření obrazu. Pro sestavení obrazu je nutné složku přemístit.
     ```shell
     cp -r patches/openstack/overlay/lib/* patches/openstack/overlay/usr/lib/
